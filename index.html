@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="img/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap"
+    />
+    <title>Covid- 19 en Colombia</title>
+  </head>
+
+  <body>
+    <h1 style="text-align: center;">Covid - 19 en Colombia</h1>
+    <div class="container">
+      <div class="card">
+        <h2 class="fallecidos">Fallecidos</h2>
+        <div class="card-body">
+          <p class="card-text">
+            Número de personas muertas: <span id="fallecidos"></span>
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="recuperados">Recuperados</h2>
+        <div class="card-body">
+          <p class="card-text">
+            Número de personas recuperadas: <span id="recuperados"></span>
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="total">Total casos</h2>
+        <div class="card-body">
+          <p class="card-text">
+            Número de casos en Colombia: <span id="totalCasos"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p style="text-align: center;">Creado por @ElkinMadrid</p>
+    </footer>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
