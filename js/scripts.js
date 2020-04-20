@@ -2,22 +2,99 @@ document.addEventListener("DOMContentLoaded", cargarDatosAPI);
 
 function cargarDatosAPI() {
   const fallecidos = document.getElementById("fallecidos");
-  const totalCasos = document.getElementById("totalCasos");
+  const hombresFalle = document.getElementById("hombresFalle");
+  const mujeresFalle = document.getElementById("mujeresFalle");
+
   const recuperados = document.getElementById("recuperados");
-  const fecha = document.getElementsByClassName("dateUpdate");
+  const hombresRecu = document.getElementById("hombresRecu");
+  const mujeresRecu = document.getElementById("mujeresRecu");
+
+  const activosTotal = document.getElementById("activosTotal");
+  const mujeresActi = document.getElementById("mujeresActi");
+  const hombresActi = document.getElementById("hombresActi");
+
+  const totalCasos = document.getElementById("totalCasos");
+  const totalCasosMujeres = document.getElementById("totalCasosMujeres");
+  const totalCasosHombres = document.getElementById("totalCasosHombres");
 
   axios({
     method: "GET",
     url:
-      "https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?search=COLOMBIA&order=total_cases",
+      "https://www.datos.gov.co/resource/gt2j-8ykr.json?$limit=100000000&$$app_token=6NxYR4xTp2BUlQawpjqYrnm80",
   }).then((res) => {
-    console.log(res.data.data.last_update);
-    for (const elem of fecha) {
-      elem.innerHTML = res.data.data.last_update;
-    }
+    const arrayRes = res.data; // TOTAL DE CONTAGIADOS.
 
-    fallecidos.innerHTML = res.data.data.rows[0].total_deaths;
-    recuperados.innerHTML = res.data.data.rows[0].total_recovered;
-    totalCasos.innerHTML = res.data.data.rows[0].total_cases;
+    const totalCasosActivos = arrayRes.filter(
+      (a) =>
+        a.atenci_n == "Hospital" ||
+        a.atenci_n == "Casa" ||
+        a.atenci_n == "Hospital UCI"
+    );
+
+    const totalMujeresActivas = totalCasosActivos.filter(
+      (mujerActi) => mujerActi.sexo.toUpperCase() == "F"
+    );
+
+    const totalHombresActivas = totalCasosActivos.filter(
+      (hombreActi) => hombreActi.sexo.toUpperCase() == "M"
+    );
+
+    console.log(totalCasosActivos.sexo);
+    console.log(totalMujeresActivas.length);
+    console.log(totalHombresActivas.length);
+
+    const totalMujeres = arrayRes.filter(
+      (total) => total.sexo.toUpperCase() == "F"
+    );
+
+    const totalHombres = arrayRes.filter(
+      (total) => total.sexo.toUpperCase() == "M"
+    );
+
+    const recuperadosTotal = arrayRes.filter(
+      (ate) => ate.atenci_n == "Recuperado"
+    );
+
+    const mujeresRecuperadas = recuperadosTotal.filter(
+      (mujer) => mujer.sexo.toUpperCase() == "F"
+    );
+
+    const hombresRecuperadas = recuperadosTotal.filter(
+      (hombre) => hombre.sexo.toUpperCase() == "M"
+    );
+
+    const fallecidosTotal = arrayRes.filter(
+      (ate) => ate.atenci_n == "Fallecido"
+    );
+
+    const mujeresFallecidas = fallecidosTotal.filter(
+      (mujerFalle) => mujerFalle.sexo.toUpperCase() == "F"
+    );
+
+    const hombresFallecidos = fallecidosTotal.filter(
+      (hombreFalle) => hombreFalle.sexo.toUpperCase() == "M"
+    );
+
+    totalCasosHombres.innerHTML = totalHombres.length;
+    totalCasosMujeres.innerHTML = totalMujeres.length;
+    hombresRecu.innerHTML = hombresRecuperadas.length;
+    mujeresRecu.innerHTML = mujeresRecuperadas.length;
+    hombresFalle.innerHTML = hombresFallecidos.length;
+    mujeresFalle.innerHTML = mujeresFallecidas.length;
+    fallecidos.innerHTML = fallecidosTotal.length;
+    recuperados.innerHTML = recuperadosTotal.length;
+    totalCasos.innerHTML = arrayRes.length;
+    activosTotal.innerHTML = totalCasosActivos.length;
+    mujeresActi.innerHTML = totalMujeresActivas.length;
+    hombresActi.innerHTML = totalHombresActivas.length;
+  });
+}
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker
+      .register("/serviceWorker.js")
+      .then((res) => console.log("service worker registered"))
+      .catch((err) => console.log("service worker not registered", err));
   });
 }
