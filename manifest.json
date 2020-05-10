@@ -1,10 +1,10 @@
 {
   "name": "Covid Colombia",
-  "short_name": "Covid_Colombia",
+  "short_name": "Covid 19 - Colombia",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#fdfdfd",
-  "theme_color": "#db4938",
+  "theme_color": "#ffffff",
   "orientation": "portrait-primary",
   "icons": [
     {

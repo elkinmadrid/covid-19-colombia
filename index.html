@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+
+    
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="robots" content="index,follow">
     <link rel="manifest" href="manifest.json" />
     <meta name="description" content="Covid - 19 en Colombia" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="css/styles.css" />
 
     <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap"
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap"
     />
 
     <link rel="apple-touch-icon" href="images/icons/icon-72x72.png" />
@@ -21,8 +28,8 @@
     <link rel="apple-touch-icon" href="images/icons/icon-192x192.png" />
     <link rel="apple-touch-icon" href="images/icons/icon-384x384.png" />
     <link rel="apple-touch-icon" href="images/icons/icon-512x512.png" />
-    <meta name="apple-mobile-web-app-status-bar" content="#db4938" />
-    <meta name="theme-color" content="#db4938" />
+    <meta name="apple-mobile-web-app-status-bar" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
 
     <title>Covid- 19 en Colombia</title>
   </head>
@@ -35,13 +42,13 @@
           <h2 class="fallecidos">Fallecidos</h2>
           <div class="card-body">
             <p class="card-text">
-              Número de personas fallecidas: <span id="fallecidos"></span>
-            </p>
-            <p class="card-text">
               Mujeres fallecidas: <span id="mujeresFalle"></span>
             </p>
             <p class="card-text">
               Hombres fallecidos: <span id="hombresFalle"></span>
+            </p>
+            <p class="card-text">
+              Total de personas fallecidas: <span id="fallecidos"></span>
             </p>
           </div>
         </div>
@@ -49,13 +56,13 @@
           <h2 class="recuperados">Recuperados</h2>
           <div class="card-body">
             <p class="card-text">
-              Número de personas recuperadas: <span id="recuperados"></span>
-            </p>
-            <p class="card-text">
               Mujeres recuperadas: <span id="mujeresRecu"></span>
             </p>
             <p class="card-text">
               Hombres recuperados: <span id="hombresRecu"></span>
+            </p>
+            <p class="card-text">
+              Total de personas recuperadas: <span id="recuperados"></span>
             </p>
           </div>
         </div>
@@ -63,13 +70,13 @@
           <h2 class="activos">Activos</h2>
           <div class="card-body">
             <p class="card-text">
-              Número de personas activas: <span id="activosTotal"></span>
-            </p>
-            <p class="card-text">
               Mujeres activas: <span id="mujeresActi"></span>
             </p>
             <p class="card-text">
               Hombres activos: <span id="hombresActi"></span>
+            </p>
+            <p class="card-text">
+              Total de casos activos: <span id="activosTotal"></span>
             </p>
           </div>
         </div>
@@ -77,13 +84,13 @@
           <h2 class="total">Total casos</h2>
           <div class="card-body">
             <p class="card-text">
-              Número de casos en Colombia: <span id="totalCasos"></span>
-            </p>
-            <p class="card-text">
               Total de mujeres: <span id="totalCasosMujeres"></span>
             </p>
             <p class="card-text">
               Total de hombres: <span id="totalCasosHombres"></span>
+            </p>
+            <p class="card-text">
+              Total casos en Colombia: <span id="totalCasos"></span>
             </p>
           </div>
         </div>

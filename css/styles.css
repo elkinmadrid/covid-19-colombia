@@ -70,6 +70,6 @@ p {
 
 @media screen and (min-width: 900px) {
     .card {
-        flex: 1 1 calc(33% - 2rem);
+        flex: 1 1 calc(25% - 2rem);
     }
 }

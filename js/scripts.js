@@ -31,36 +31,31 @@ function cargarDatosAPI() {
         a.atenci_n == "Hospital UCI"
     );
 
-    const totalMujeresActivas = totalCasosActivos.filter(
-      (mujerActi) => mujerActi.sexo.toUpperCase() == "F"
+    const totalMujeresActivas = totalCasosActivos.filter((mujerActi) =>
+      mujerActi.sexo !== undefined ? mujerActi.sexo.toUpperCase() == "F" : ""
     );
 
-    const totalHombresActivas = totalCasosActivos.filter(
-      (hombreActi) => hombreActi.sexo.toUpperCase() == "M"
+    const totalHombresActivas = totalCasosActivos.filter((hombreActi) =>
+      hombreActi.sexo !== undefined ? hombreActi.sexo.toUpperCase() == "M" : ""
     );
-
-    console.log(totalCasosActivos.sexo);
-    console.log(totalMujeresActivas.length);
-    console.log(totalHombresActivas.length);
-
-    const totalMujeres = arrayRes.filter(
-      (total) => total.sexo.toUpperCase() == "F"
+    const totalMujeres = arrayRes.filter((total) =>
+      total.sexo !== undefined ? total.sexo.toUpperCase() == "F" : ""
     );
 
     const totalHombres = arrayRes.filter(
-      (total) => total.sexo.toUpperCase() == "M"
+      (total) => total.sexo !== undefined ? total.sexo.toUpperCase() == "M" : ""
     );
 
     const recuperadosTotal = arrayRes.filter(
       (ate) => ate.atenci_n == "Recuperado"
     );
 
-    const mujeresRecuperadas = recuperadosTotal.filter(
-      (mujer) => mujer.sexo.toUpperCase() == "F"
+    const mujeresRecuperadas = recuperadosTotal.filter((mujer) =>
+      mujer.sexo !== undefined ? mujer.sexo.toUpperCase() == "F" : ""
     );
 
     const hombresRecuperadas = recuperadosTotal.filter(
-      (hombre) => hombre.sexo.toUpperCase() == "M"
+      (hombre) => hombre.sexo !== undefined  ? hombre.sexo.toUpperCase() == "M" : ""
     );
 
     const fallecidosTotal = arrayRes.filter(
@@ -68,11 +63,11 @@ function cargarDatosAPI() {
     );
 
     const mujeresFallecidas = fallecidosTotal.filter(
-      (mujerFalle) => mujerFalle.sexo.toUpperCase() == "F"
+      (mujerFalle) => mujerFalle.sexo  !== undefined ? mujerFalle.sexo.toUpperCase() == "F": ""
     );
 
     const hombresFallecidos = fallecidosTotal.filter(
-      (hombreFalle) => hombreFalle.sexo.toUpperCase() == "M"
+      (hombreFalle) => hombreFalle.sexo   !== undefined ?   hombreFalle.sexo.toUpperCase() == "M" : ""
     );
 
     totalCasosHombres.innerHTML = totalHombres.length;
